@@ -18,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/fireex/' as string),
+  history: createWebHistory(),
   routes
 })
 

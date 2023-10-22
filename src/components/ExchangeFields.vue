@@ -121,7 +121,6 @@ export default defineComponent({
                 this.load = false
             })
         },
-        // helpers
         exchangeSides(){
             const nv = {...this.sideSell}
             this.sideSell = this.sideBuy

@@ -1,36 +1,61 @@
 <template>
-    <div>
-        <div class="md:flex justify-between relative">
-            <Loader v-if="load" />
-            <div class="w-full">
-                <label class="text-xs text-gray-500">Я продаю</label>
-                <div class="relative">
-                    <div class="absolute top-0 right-0 h-full w-10 flex justify-center items-center">
-                        <img :src="getImageByName(sideSell.selected, sideSell.items)" class="w-6">
-                    </div>
-                    <input type="text" placeholder="Продажа" class="w-full bg-gray-300 border-0 outline-none rounded" v-model="sideSell.val" 
-                    @input="countCourseInput(sideSell, sideBuy)">
-                </div>
-                <CurrencyList :side="sideSell" @changeSelected="changeSelected($event, sideSell)" />
-            </div>
-            <div class="text-center pt-2 md:pt-7">
-                <button class="h-8 w-8 bg-primary text-white rounded-full mx-2" @click="exchangeSides">
-                    <span class="mdi mdi-swap-horizontal"></span>
-                </button>
-            </div>
-            <div class="w-full">
-                <label class="text-xs text-gray-500">Я покупаю</label>
-                <div class="relative">
-                    <div class="absolute top-0 right-0 h-full w-10 flex justify-center items-center">
-                        <img :src="getImageByName(sideBuy.selected, sideBuy.items)" class="w-6">
-                    </div>
-                    <input type="text" placeholder="Покупка" class="w-full bg-gray-300 border-0 outline-none rounded" v-model="sideBuy.val" 
-                    @input="countCourseInput(sideBuy, sideSell)">
-                </div>
-                <CurrencyList :side="sideBuy" @changeSelected="changeSelected($event, sideBuy)" />
-            </div>
+  <div>
+    <div class="md:flex justify-between relative">
+      <Loader v-if="load" />
+      <div class="w-full">
+        <label class="text-xs text-gray-500">Я продаю</label>
+        <div class="relative">
+          <div class="absolute top-0 right-0 h-full w-10 flex justify-center items-center">
+            <img
+              :src="getImageByName(sideSell.selected, sideSell.items)"
+              class="w-6"
+            >
+          </div>
+          <input
+            v-model="sideSell.val"
+            type="text"
+            placeholder="Продажа"
+            class="w-full bg-gray-300 border-0 outline-none rounded" 
+            @input="countCourseInput(sideSell, sideBuy)"
+          >
         </div>
+        <CurrencyList
+          :side="sideSell"
+          @change-selected="changeSelected($event, sideSell)"
+        />
+      </div>
+      <div class="text-center pt-2 md:pt-7">
+        <button
+          class="h-8 w-8 bg-primary text-white rounded-full mx-2"
+          @click="exchangeSides"
+        >
+          <span class="mdi mdi-swap-horizontal" />
+        </button>
+      </div>
+      <div class="w-full">
+        <label class="text-xs text-gray-500">Я покупаю</label>
+        <div class="relative">
+          <div class="absolute top-0 right-0 h-full w-10 flex justify-center items-center">
+            <img
+              :src="getImageByName(sideBuy.selected, sideBuy.items)"
+              class="w-6"
+            >
+          </div>
+          <input
+            v-model="sideBuy.val"
+            type="text"
+            placeholder="Покупка"
+            class="w-full bg-gray-300 border-0 outline-none rounded" 
+            @input="countCourseInput(sideBuy, sideSell)"
+          >
+        </div>
+        <CurrencyList
+          :side="sideBuy"
+          @change-selected="changeSelected($event, sideBuy)"
+        />
+      </div>
     </div>
+  </div>
 </template>
 
 <script lang="ts">

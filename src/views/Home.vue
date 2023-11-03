@@ -1,11 +1,11 @@
 <template>
-<section class="py-8 sm:w-[650px] px-4 sm:px-0 mx-auto">
+  <section class="py-8 sm:w-[650px] px-4 sm:px-0 mx-auto">
     <Header />
     <Stat />
     <ExchangeFields />
     <OrderExchange />
     <Footer />
-</section>
+  </section>
 </template>
 
 <script lang="ts">
